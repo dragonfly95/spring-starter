@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.starter.sample.user.UserMapper">
+ 
+    <select id="selectAllUsers" resultType="com.starter.sample.user.User">
+        SELECT * FROM tbl_user
+    </select>
+ 
+    <insert id="insertUser" parameterType="com.starter.sample.user.User">
+        INSERT INTO tbl_user VALUES(
+            #{id},
+            #{username},
+            #{password}
+        )
+    </insert>
+ 
+    <update id="updateUser" parameterType="com.starter.sample.user.User">
+        UPDATE tbl_user
+        SET username = #{username},
+            password = #{password}
+        WHERE id = #{id}
+    </update>
+     
+    <delete id="deleteUser" parameterType="com.starter.sample.user.User">
+        DELETE FROM tbl_user
+        WHERE id = #{id}
+    </delete>
+     
+</mapper>
